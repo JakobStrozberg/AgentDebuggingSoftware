@@ -1,0 +1,85 @@
+[
+  {
+    "id": "test_weather_success",
+    "name": "Weather Query - London",
+    "query": "What's the weather like in London today?",
+    "expected_behavior": "Should successfully retrieve weather information for London",
+    "expected_tools": ["get_weather"],
+    "metadata": {"category": "weather", "priority": "high"}
+  },
+  {
+    "id": "test_customer_success",
+    "name": "Customer Lookup - Valid ID",
+    "query": "Can you look up customer 98765 and include their order history?",
+    "expected_behavior": "Should retrieve customer data with order history",
+    "expected_tools": ["get_customer"],
+    "metadata": {"category": "customer", "priority": "high"}
+  },
+  {
+    "id": "test_calc_complex",
+    "name": "Complex Calculation",
+    "query": "Calculate (25 * 4) + (100 / 5) - 10",
+    "expected_behavior": "Should evaluate the mathematical expression correctly",
+    "expected_tools": ["calculate"],
+    "metadata": {"category": "math", "priority": "medium"}
+  },
+  {
+    "id": "test_summarize_long",
+    "name": "Long Text Summarization",
+    "query": "Summarize: Artificial intelligence has revolutionized many industries by automating complex tasks and providing insights from large datasets. Machine learning algorithms can now perform image recognition, natural language processing, and predictive analytics with remarkable accuracy. This technology continues to evolve rapidly, with new breakthroughs happening regularly.",
+    "expected_behavior": "Should summarize the text to a shorter version",
+    "expected_tools": ["summarize_text"],
+    "metadata": {"category": "text", "priority": "medium"}
+  },
+  {
+    "id": "test_customer_not_found",
+    "name": "Customer Lookup - Invalid ID",
+    "query": "Find information about customer invalid999",
+    "expected_behavior": "Should fail with customer not found error",
+    "expected_tools": ["get_customer"],
+    "expected_error": "not found",
+    "metadata": {"category": "customer", "priority": "high", "error_test": true}
+  },
+  {
+    "id": "test_calc_division_zero",
+    "name": "Division by Zero",
+    "query": "What is 100 divided by 0?",
+    "expected_behavior": "Should fail with division by zero error",
+    "expected_tools": ["calculate"],
+    "expected_error": "division by zero",
+    "metadata": {"category": "math", "priority": "high", "error_test": true}
+  },
+  {
+    "id": "test_summarize_too_short",
+    "name": "Text Too Short to Summarize",
+    "query": "Summarize: Hello world",
+    "expected_behavior": "Should fail with text too short error",
+    "expected_tools": ["summarize_text"],
+    "expected_error": "too short",
+    "metadata": {"category": "text", "priority": "low", "error_test": true}
+  },
+  {
+    "id": "test_multi_tool",
+    "name": "Multiple Tool Usage",
+    "query": "What's the weather in Tokyo and also calculate 50 * 3?",
+    "expected_behavior": "Should use both weather and calculator tools",
+    "expected_tools": ["get_weather", "calculate"],
+    "metadata": {"category": "multi", "priority": "high"}
+  },
+  {
+    "id": "test_ambiguous",
+    "name": "Ambiguous Query",
+    "query": "Tell me something interesting",
+    "expected_behavior": "Should handle ambiguous query gracefully",
+    "expected_tools": [],
+    "metadata": {"category": "edge_case", "priority": "low"}
+  },
+  {
+    "id": "test_weather_units",
+    "name": "Weather with Fahrenheit",
+    "query": "Get the weather in New York in fahrenheit",
+    "expected_behavior": "Should retrieve weather with fahrenheit units",
+    "expected_tools": ["get_weather"],
+    "metadata": {"category": "weather", "priority": "medium"}
+  }
+] 
